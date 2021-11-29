@@ -17,7 +17,7 @@ bool is_prime(ll N){
 ll divisionors(ll N){
   ll i=1, cnt=0;
   while (i*i<=N){
-    if (N%i==0&&i==n/i) cnt++;
+    if (N%i==0&&i==N/i) cnt++;
     else if(N%i==0) cnt+=2;
     i++;
   }
