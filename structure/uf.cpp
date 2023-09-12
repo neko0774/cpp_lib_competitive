@@ -27,5 +27,20 @@ struct dsu{
     if (root[x]==x) return x;
     root[x] = find(root[x]);
     return root[x];
+    
+  }
+
+  vector<vector<int>> groups(){
+    vector<vector<int>> keep(N, vector<int>());
+    vector<vector<int>> ret;
+    for(int i=0;i<N;i++){
+      keep[find(i)].push_back(i);
+    }
+    for(int i=0;i<N;i++){
+      if(keep[i].size()!=0){
+        ret.push_back(keep[i]);
+      }
+    }
+    return ret;
   }
 };
