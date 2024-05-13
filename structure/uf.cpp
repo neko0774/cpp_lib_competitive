@@ -7,6 +7,7 @@ struct dsu{
   for(int i=0;i<_N;i++){
     root[i]=i;
   }
+  N = _N;
   }
 
   int merge(int x, int y){
