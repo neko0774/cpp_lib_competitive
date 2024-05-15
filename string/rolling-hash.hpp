@@ -1,23 +1,24 @@
+
 template<typename T>
 struct rollinghash{
   long long MOD, B;
   vector<T>  hash, power;
-  rollinghash(string &s, T mod, T base){
+  rollinghash(string &s, long long base, long long mod){
     vector<T> S;
     MOD = (long long)mod;
     B = (long long)base;
-    for(char ss: s) S.emplace_back(s);
+    for(char ss: s) S.emplace_back(ss-'a');
     int N = S.size();
     hash.assign(N+1, 0);
     power.assign(N+1, 0);
     for(int i=0;i<N;i++){
       hash[i+1] = ((long long)hash[i]*B+S[i])%MOD;
-      P[i+1] = ((long long)power[i]*B)%MOD;
+      power[i+1] = ((long long)power[i]*B)%MOD;
     }
   }
 
   T get(int l, int r){
-    T ret = (ll)hash[r]+mod-(ll)hash[l]*power(r-1)%MOD;
+    T ret = (long long)hash[r]+MOD-(long long)hash[l]*power[r-1]%MOD;
     if(ret>=MOD)ret-=MOD;
     return ret;
   }
